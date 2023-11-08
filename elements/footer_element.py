@@ -54,5 +54,7 @@ class FooterElement(BasePage):
         self.click_on(self.SEND_LOCATOR)
         self.wait_for_visible(self.TEXT_LOCATOR)
 
+    def assert_succsess_fill_form_write_us(self):
+        self.assert_element_is_displayed(self.TEXT_LOCATOR)
 
 

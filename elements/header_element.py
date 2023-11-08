@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 
+from data import DOMAIN
 from helpers import BasePage
 
 
@@ -28,7 +29,7 @@ class HeaderElement(BasePage):
     ERROR_ICON_INCORRECT_INPUT_COUNTRY = "//span[@class='input-error-message__icon-wrapper']"
 
     def open(self):
-        self.driver.get('https://www.21vek.by/')
+        self.driver.get(DOMAIN)
 
     def click_on_city_locator(self):
         self.click_on(self.CITY_LOCATOR)

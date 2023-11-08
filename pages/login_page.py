@@ -1,6 +1,7 @@
 import random
 import string
 
+from data import DOMAIN
 from helpers import BasePage
 from selenium.webdriver.common.by import By
 from data.users import USER_AlESYA
@@ -20,7 +21,7 @@ class LoginPage(BasePage):
     ACCOUNT_LOCATOR = "//span[@class='userToolsText']"
 
     def open(self):
-        self.driver.get('https://www.21vek.by/')
+        self.driver.get(DOMAIN)
 
     def click_on_enter_button(self):
         self.wait_for_visible(self.ENTER_BUTTON_LOCATOR)

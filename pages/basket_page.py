@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from helpers import BasePage
-
+from data.urls import DOMAIN
 
 class BasketPage(BasePage):
     NUMBERS_ITEMS_IN_BASKET = "//span[@class='BasketTabsScreen_counter___R5Jp']"
@@ -17,7 +17,7 @@ class BasketPage(BasePage):
     MESSAGE_DELETE_ADDITIONAL_SERVICE_LOCATOR = "//div[contains(text(),'Услуга удалена')]"
 
     def open(self):
-        self.driver.get('https://www.21vek.by/order/')
+        self.driver.get(DOMAIN)
 
     def click_on_basket(self):
         self.wait_for_visible(self.BASKET_LOCATOR)

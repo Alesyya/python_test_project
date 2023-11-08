@@ -1,6 +1,8 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
+
+from data import DOMAIN
 from helpers import BasePage
 
 
@@ -17,7 +19,7 @@ class MainPage(BasePage):
     DISCOUNTED_PRODUCT_LOCATOR = "//*[contains(text(),'Уцененный товар')]"
 
     def open(self):
-        self.driver.get('https://www.21vek.by')
+        self.driver.get(DOMAIN)
 
     def click_product_to_basket_button(self):
         self.wait_for_visible(self.ADD_TO_BASKET_LOCATOR)

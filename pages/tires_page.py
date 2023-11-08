@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 
 from helpers import BasePage
 from elements import HeaderElement
+from data.urls import TIRES_PAGE_URL
 
 
 class TiresPage(BasePage):
@@ -21,7 +22,7 @@ class TiresPage(BasePage):
     text_to_order = "//*[contains(text(),'Под заказ')]"
 
     def open(self):
-        self.driver.get('https://www.21vek.by/tires/')
+        self.driver.get(TIRES_PAGE_URL)
 
     def assert_text_in_button_and_title_of_page_tires(self):
         actual_text = self.driver.find_element(By.XPATH, HeaderElement.TIRES_LOCATOR).text
@@ -50,8 +51,6 @@ class TiresPage(BasePage):
         self.click_on(self.MODEL_100_LOCATOR)
         self.click_on(self.YEAR_OF_ISSUE)
         self.click_on(self.YEAR_1968_ISSUE)
-        # self.click_on(self.modification_locator)
-        # self.click_on(self.modification_choose_locator)
 
     def assert_result_inner(self):
         text_in_button = self.driver.find_element(By.XPATH, self.SHOW_BUTTON).text
