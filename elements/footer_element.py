@@ -1,3 +1,4 @@
+from data import DOMAIN
 from helpers import BasePage
 from data.users import USER_AlESYA
 
@@ -19,7 +20,7 @@ class FooterElement(BasePage):
     TEXT_LOCATOR = "//h5[@class='styles_successTitle__YoP7v']"
 
     def open(self):
-        self.driver.get('https://www.21vek.by/')
+        self.driver.get(DOMAIN)
 
     def click_on_viber_locator(self):
         self.wait_for_visible(self.VIBER_LOCATOR)
