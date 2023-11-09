@@ -1,3 +1,5 @@
+import allure
+
 from helpers import BasePage
 
 
@@ -8,5 +10,6 @@ class AllPromotionsPage(BasePage):
         super().__init__(driver)
         self.driver = driver
 
+    @allure.step("Click on product")
     def click_on_product_locator(self):
         self.click_on(self.PRODUCT_LOCATOR)
