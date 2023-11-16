@@ -1,18 +1,29 @@
+import allure
+
 from elements import HeaderElement
 
 
+@allure.feature("Logo")
+@allure.story("Check visible logo")
+@allure.severity('trivial')
 def test_21vek_logo(driver):
     header = HeaderElement(driver)
     header.open()
     header.assert_visible_logo()
 
 
+@allure.feature("Refrigerators")
+@allure.story("Check visible text refrigerators")
+@allure.severity('minor')
 def test_visible_text_refrigerators(driver, accept_cookies):
     header = HeaderElement(driver)
     header.open()
     header.assert_correct_visible_text_product()
 
 
+@allure.feature("Country")
+@allure.story("Choose country")
+@allure.severity('normal')
 def test_choose_country(driver, accept_cookies):
     header_element = HeaderElement(driver)
     header_element.open()
@@ -23,6 +34,9 @@ def test_choose_country(driver, accept_cookies):
     header_element.assert_choose_country()
 
 
+@allure.feature("Country")
+@allure.story("Choose country incorrect")
+@allure.severity('normal')
 def test_choose_country_incorrect(driver, accept_cookies):
     header_element = HeaderElement(driver)
     header_element.open()

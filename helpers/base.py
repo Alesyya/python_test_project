@@ -75,13 +75,13 @@ class BasePage:
         assert expected_url == actual_url, f"Expected URL: {expected_url}, Actual URL: {actual_url}"
         return actual_url
 
-    def assert_scroll(self):
+    def assert_scroll_page(self):
         page_height = self.driver.execute_script("return document.documentElement.scrollHeight")
         self.driver.execute_script("window.scrollTo(0, document.documentElement.scrollHeight);")
         new_page_height = self.driver.execute_script("return document.documentElement.scrollHeight")
         assert new_page_height == page_height
 
-    def assert_scroll_to_element(self, locator):
+    def scroll_to_element(self, locator):
         element = self.driver.find_element(By.XPATH, locator)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 

@@ -1,3 +1,5 @@
+import allure
+
 from data import DOMAIN
 from helpers import BasePage
 from data.users import USER_AlESYA
@@ -19,34 +21,44 @@ class FooterElement(BasePage):
     SEND_LOCATOR = "//div[text()='Отправить']"
     TEXT_LOCATOR = "//h5[@class='styles_successTitle__YoP7v']"
 
+    @allure.step("Open the website")
     def open(self):
         self.driver.get(DOMAIN)
 
+    @allure.step("Click on viber")
     def click_on_viber_locator(self):
         self.wait_for_visible(self.VIBER_LOCATOR)
         self.click_on(self.VIBER_LOCATOR)
 
+    @allure.step("Click on telegram")
     def click_on_telegram_locator(self):
         self.click_on(self.TELEGRAM_LOCATOR)
 
+    @allure.step("Click on email")
     def click_on_email_locator(self):
         self.click_on(self.EMAIL_LOCATOR)
 
+    @allure.step("Click on vk")
     def click_on_vk_locator(self):
         self.click_on(self.VK_LOCATOR)
 
+    @allure.step("Click on facebook")
     def click_on_facebook_locator(self):
         self.click_on(self.FACEBOOK_LOCATOR)
 
+    @allure.step("Click on youtube")
     def click_on_youtube_locator(self):
         self.click_on(self.YOUTUBE_LOCATOR)
 
+    @allure.step("Click on zen yandex")
     def click_on_zen_yandex_locator(self):
         self.click_on(self.ZEN_YANDEX_LOCATOR)
 
+    @allure.step("Click on write to us")
     def click_on_write_us_locator(self):
         self.click_on(self.WRITE_US_LOCATOR)
 
+    @allure.step("Fill form write us")
     def fill_form_write_us(self):
         self.fill(self.NAME_LOCATOR, USER_AlESYA['name'])
         self.fill(self.EMAIL_WRITE_US_LOCATOR, USER_AlESYA['email'])
@@ -55,7 +67,8 @@ class FooterElement(BasePage):
         self.click_on(self.SEND_LOCATOR)
         self.wait_for_visible(self.TEXT_LOCATOR)
 
-    def assert_succsess_fill_form_write_us(self):
+    @allure.step("Assert successfull fill form write us")
+    def assert_successfull_fill_form_write_us(self):
         self.assert_element_is_displayed(self.TEXT_LOCATOR)
 
 

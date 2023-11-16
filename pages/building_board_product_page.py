@@ -1,4 +1,6 @@
+import allure
 import re
+
 from selenium.webdriver.common.by import By
 from helpers import BasePage
 
@@ -13,6 +15,7 @@ class BuildingBoardProductPage(BasePage):
         super().__init__(driver)
         self.driver = driver
 
+    @allure.step("Check sale of the product")
     def check_sale(self):
         higher_price1 = self.driver.find_element(By.XPATH, self.PRICE_WITHOUT_DISCOUNT_LOCATOR)
         lower_price2 = self.driver.find_element(By.XPATH, self.PRICE_WITH_DISCOUNT_LOCATOR)
@@ -26,8 +29,10 @@ class BuildingBoardProductPage(BasePage):
         else:
             print("Цены равны")
 
+    @allure.step("Click on favorites button")
     def click_on_favorites_locator(self):
         self.click_on(self.ADD_TO_FAVORITES_LOCATOR)
 
+    @allure.step("Assert add product in favorites")
     def checking_product_is_in_favorites(self):
         assert self.driver.find_element(By.XPATH, self.DELETE_FROM_FAVORITES_LOCATOR).text == "Удалить из избранного"
